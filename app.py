@@ -275,7 +275,7 @@ def replyMessage(payload):
             }
         ]}
     print(response.text)
-    return response
+    return response.text
 
 
 def pushMessage(payload):
