@@ -263,25 +263,18 @@ def getImageMessage(originalContentUrl):
 
 
 def replyMessage(payload):
-    response = {"replyToken":payload["replyToken"],
-        "messages":[
-            {
-                "type":"text",
-                "text":"Hello, user~"
-            },
-            {
-                "type":"text",
-                "text":"I am Danny"
-            }
-        ]}
+    url = "https://api.line.me/v2/bot/message/reply"
+
+    response = request.post(url)
     print(response.text)
-    return 'yfjygkhkihkufgjhfyfjyg'
+    return response.text
 
 
 def pushMessage(payload):
+    url = "https://api.line.me/v2/bot/message/push"
     response = {}
     print(response.text)
-    return 'OK'
+    return response.text
 
 
 def getTotalSentMessageCount():
