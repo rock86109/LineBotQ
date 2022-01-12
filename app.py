@@ -132,7 +132,7 @@ def index():
                                            getCallCarMessage(data)]
                 replyMessage(payload)
 
-    return 'OK'
+    return replyMessage(payload)
 
 
 @app.route("/callback", methods=['POST'])
