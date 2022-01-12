@@ -27,14 +27,13 @@ HEADER = {
     'Authorization': F'Bearer {config.get("line-bot", "channel_access_token")}'
 }
 
-
 @app.route("/", methods=['POST', 'GET'])
 def index():
     if request.method == 'GET':
         return 'ok'
     body = request.json
     events = body["events"]
-    print(body)
+    print(events)
     if "replyToken" in events[0]:
         payload = dict()
         replyToken = events[0]["replyToken"]
