@@ -181,7 +181,7 @@ def getNameEmojiMessage():
             {
                 "index": i,
                 "productId" : productId,
-                emojiId : str(i)
+                "emojiId" : str(i)
             }
         )
     message["emojis"] = emojis_list
