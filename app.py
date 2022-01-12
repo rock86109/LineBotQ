@@ -27,13 +27,14 @@ HEADER = {
     'Authorization': F'Bearer {config.get("line-bot", "channel_access_token")}'
 }
 
+
 @app.route("/", methods=['POST', 'GET'])
 def index():
     if request.method == 'GET':
         return 'ok'
     body = request.json
     events = body["events"]
-    print(events)
+    print(body)
     if "replyToken" in events[0]:
         payload = dict()
         replyToken = events[0]["replyToken"]
@@ -262,9 +263,19 @@ def getImageMessage(originalContentUrl):
 
 
 def replyMessage(payload):
-    response = {}
+    response = {"replyToken":payload["replyToken"],
+        "messages":[
+            {
+                "type":"text",
+                "text":"Hello, user~"
+            },
+            {
+                "type":"text",
+                "text":"I am Danny"
+            }
+        ]}
     print(response.text)
-    return 'OK'
+    return response
 
 
 def pushMessage(payload):
