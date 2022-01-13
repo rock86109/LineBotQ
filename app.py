@@ -51,6 +51,7 @@ def index():
                     print("!!!!!", end_point)
                     payload["messages"] = [getTaipei101ImageMessage(),
                                             #getTaipei101LocationMessage(),
+                                            getMRTSoundMessage(),
                                             getMRTVideoMessage()]
                 elif text == "扣打":
                     payload["messages"] = [
