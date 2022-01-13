@@ -51,7 +51,7 @@ def index():
                     print("!!!!!", end_point)
                     payload["messages"] = [getTaipei101ImageMessage(),
                                             #getTaipei101LocationMessage(),
-                                            getMRTSoundMessage(),
+                                            #getMRTSoundMessage(),
                                             getMRTVideoMessage()]
                 elif text == "扣打":
                     payload["messages"] = [
@@ -249,11 +249,11 @@ def getMRTSoundMessage():
     message = dict()
     message["type"] = "audio"
     message["originalContentUrl"] = F"{end_point}/static/mrt_sound.m4a"
-    import audioread
-    with audioread.audio_open('static/mrt_sound.m4a') as f:
+#    import audioread
+#    with audioread.audio_open('static/mrt_sound.m4a') as f:
         # totalsec contains the length in float
-        totalsec = f.duration
-    message["duration"] = totalsec * 1000
+#        totalsec = f.duration
+    message["duration"] = 10000 # totalsec * 1000
     return message
 
 
