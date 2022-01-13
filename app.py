@@ -207,21 +207,21 @@ def getCarouselMessage(data):
                     "action": {
                         "type": "postback",
                         "label": "taipei_101",
-                        "data": json.dumps({"action":"get_drtail", "spot":"taipei_101"})
+                        "data": json.dumps({"action":"get_detail", "spot":"taipei_101"})
                     }
                 },{
                     "imageUrl": F"{end_point}/static/teacher_con.jpeg",
                     "action": {
                         "type": "postback",
                         "label": "teacher_con",
-                        "data": json.dumps({"action":"get_drtail", "spot":"teacher_con"})
+                        "data": json.dumps({"action":"get_detail", "spot":"teacher_con"})
                     }
                 },{
                     "imageUrl": F"{end_point}/static/shilin.jpeg",
                     "action": {
                         "type": "postback",
                         "label": "shilin",
-                        "data": json.dumps({"action":"get_drtail", "spot":"shilin"})
+                        "data": json.dumps({"action":"get_detail", "spot":"shilin"})
                     }
                 }
             ]
