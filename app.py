@@ -123,8 +123,9 @@ def index():
                     ]
                 replyMessage(payload)
             else:
-                print(json.loads(events[0]["postback"]["data"]))
-                data = json.loads(events[0]["postback"]["data"])
+                form_data = events[0]["postback"]["data"]
+                data = {form_data.split("=")[0], form_data.split("=")[1]}
+                # data = json.loads(events[0]["postback"]["data"])
                 action = data["action"]
                 if action == "get_near":
                     data["action"] = "get_detail"
