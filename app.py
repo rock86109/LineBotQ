@@ -96,6 +96,13 @@ def index():
                               }
                             }
                         ]
+                elif text == "否":
+                    payload["messages"] = [
+                            {
+                                "type": "text",
+                                "text": "感謝您～完成啦～"
+                            }
+                        ]
 
 
                 else:
@@ -134,6 +141,16 @@ def index():
                     del data["action"]
                     if spot == "taipei_101":
                         payload["messages"] = [getTaipei101ImageMessage(),
+                                               getTaipei101LocationMessage(),
+                                               getMRTVideoMessage(),
+                                               getCallCarMessage(data)]
+                    elif spot == "teacher_con":
+                        payload["messages"] = [getTaipei101ImageMessage(),
+                                               getTaipei101LocationMessage(),
+                                               getMRTVideoMessage(),
+                                               getCallCarMessage(data)]
+                    else:
+                        payload["shilin"] = [getTaipei101ImageMessage(),
                                                getTaipei101LocationMessage(),
                                                getMRTVideoMessage(),
                                                getCallCarMessage(data)]
