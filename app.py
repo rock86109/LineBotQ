@@ -100,7 +100,7 @@ def index():
                     payload["messages"] = [
                             {
                                 "type": "text",
-                                "text": "感謝您～完成啦～"
+                                "text": "完成啦～普天同慶囉～"
                             }
                         ]
 
