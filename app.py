@@ -129,6 +129,7 @@ def index():
                     data["action"] = "get_detail"
                     payload["messages"] = [getCarouselMessage(data)]
                 elif action == "get_detail":
+                    data = json.loads(events[0]["postback"]["data"])
                     spot = data['spot']
                     del data["action"]
                     if spot == "taipei_101":
@@ -206,21 +207,21 @@ def getCarouselMessage(data):
                     "action": {
                         "type": "postback",
                         "label": "taipei_101",
-                        "data": F"action={data['action']}&spot=taipei_101"
+                        "data": json.dumps({"action":"get_drtail", "spot":"taipei_101"})
                     }
                 },{
                     "imageUrl": F"{end_point}/static/teacher_con.jpeg",
                     "action": {
                         "type": "postback",
                         "label": "teacher_con",
-                        "data": F"action={data['action']}&spot=teacher_con"
+                        "data": json.dumps({"action":"get_drtail", "spot":"teacher_con"})
                     }
                 },{
                     "imageUrl": F"{end_point}/static/shilin.jpeg",
                     "action": {
                         "type": "postback",
                         "label": "shilin",
-                        "data": F"action={data['action']}&spot=shilin"
+                        "data": json.dumps({"action":"get_drtail", "spot":"shilin"})
                     }
                 }
             ]
