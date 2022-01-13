@@ -109,11 +109,11 @@ def index():
                                   "type": "confirm",
                                   "text": "Are you sure??????",
                                   "actions": [
-                                      {
-                                        "type": "message",
-                                        "label": "我的名字",
-                                        "text": "我的名字"
-                                      },
+                                    #   {
+                                    #     "type": "message",
+                                    #     "label": "我的名字",
+                                    #     "text": "我的名字"
+                                    #   },
                                       {
                                         "type": "message",
                                         "label": "yes",
