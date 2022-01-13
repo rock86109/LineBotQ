@@ -49,9 +49,9 @@ def index():
                     payload["messages"] = [getPlayStickerMessage()]
                 elif text == "台北101":
                     print("!!!!!", end_point)
-                    payload["messages"] = [getTaipei101ImageMessage()]#,
+                    payload["messages"] = [getTaipei101ImageMessage(),
 #                                           getTaipei101LocationMessage(),
- #                                          getMRTVideoMessage()]
+                                            getMRTVideoMessage()]
                 elif text == "扣打":
                     payload["messages"] = [
                             {
