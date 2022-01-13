@@ -247,7 +247,7 @@ def getLocationConfirmMessage(title, latitude, longitude):
                 {
                     "type" : "postback",
                     "label" : "是的 規劃",
-                    "data" : "action=get_near&itemid=111",
+                    "data" : F"action={data['action']}",
                     "text" : "是的 規劃"
                 },
                 {
