@@ -123,7 +123,7 @@ def index():
                     ]
                 replyMessage(payload)
             else:
-                print(events[0]["postback"]["data"])
+                print(json.loads(events[0]["postback"]["data"]))
                 data = json.loads(events[0]["postback"]["data"])
                 action = data["action"]
                 if action == "get_near":
