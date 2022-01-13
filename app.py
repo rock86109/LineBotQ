@@ -260,6 +260,9 @@ def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.
 
 def getImageMessage(originalContentUrl):
     message = dict()
+    message["type"] = "image"
+    message["originalContentUrl"] = "https://example.com/original.jpg"
+    message["previewImageUrl"] = "https://example.com/preview.jpg"
 
     return message
 
