@@ -96,6 +96,38 @@ def index():
                               }
                             }
                         ]
+
+
+                        ##############
+                   ##############
+                elif text == "主選單2":
+                    payload["messages"] = [
+                            {
+                                "type": "template",
+                                "altText": "This is a confirm template",
+                                "template": {
+                                  "type": "confirm",
+                                  "text": "Are you sure??????",
+                                  "actions": [
+                                      {
+                                        "type": "message",
+                                        "label": "我的名字",
+                                        "text": "我的名字"
+                                      },
+                                      {
+                                        "type": "message",
+                                        "label": "yes",
+                                        "text": "yes"
+                                      },
+                                      {
+                                        "type": "message",
+                                        "label": "no",
+                                        "text": "no"
+                                      }
+                                  ]
+                              }
+                            }
+                        ]
                 else:
                     payload["messages"] = [
                             {
