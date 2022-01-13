@@ -50,8 +50,8 @@ def index():
                 elif text == "台北101":
                     print("!!!!!", end_point)
                     payload["messages"] = [getTaipei101ImageMessage(),
-                                            #getTaipei101LocationMessage(),
-                                            #getMRTSoundMessage(),
+                                            getTaipei101LocationMessage(),
+                                            getMRTSoundMessage(),
                                             getMRTVideoMessage()]
                 elif text == "扣打":
                     payload["messages"] = [
@@ -234,6 +234,12 @@ def getPlayStickerMessage():
 
 def getTaipei101LocationMessage():
     message = dict()
+    message["type"] = "Taipei 101 type",
+    message["title"] = "Taipei 101 title",
+    message["address"] = "Taipei 101 address", 
+    message["latitude"] = 25.0329496,
+    message["longitude"] = 121.5647635
+
     return message
 
 
