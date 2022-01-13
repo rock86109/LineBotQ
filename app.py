@@ -50,7 +50,7 @@ def index():
                 elif text == "台北101":
                     print("!!!!!", end_point)
                     payload["messages"] = [getTaipei101ImageMessage(),
-                                            getTaipei101LocationMessage(),
+                                            #getTaipei101LocationMessage(),
                                             getMRTVideoMessage()]
                 elif text == "扣打":
                     payload["messages"] = [
@@ -233,9 +233,6 @@ def getPlayStickerMessage():
 
 def getTaipei101LocationMessage():
     message = dict()
-    message["type"] = "audio",
-    message["originalContentUrl"] = F"{end_point}/static/mrt_sound.m4a",
-    message["duration"] = 60000
     return message
 
 
