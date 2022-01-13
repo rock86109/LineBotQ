@@ -123,10 +123,9 @@ def index():
                     ]
                 replyMessage(payload)
             else:
-                form_data = events[0]["postback"]["data"]
-                data = json.loads({form_data.split("=")[0], form_data.split("=")[1]})
-                
-                # data = json.loads(events[0]["postback"]["data"])
+                # form_data = events[0]["postback"]["data"]
+                # data = json.loads({form_data.split("=")[0], form_data.split("=")[1]})
+                data = json.loads(events[0]["postback"]["data"])
                 action = data["action"]
                 if action == "get_near":
                     data["action"] = "get_detail"
@@ -250,7 +249,7 @@ def getLocationConfirmMessage(title, latitude, longitude):
                 {
                     "type" : "postback",
                     "label" : "是的 規劃",
-                    "data" : F"action={data['action']}",
+                    "data" : json.dumps(data),
                     "text" : "是的 規劃"
                 },
                 {
