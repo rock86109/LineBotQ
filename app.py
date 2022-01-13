@@ -98,36 +98,6 @@ def index():
                         ]
 
 
-                        ##############
-                   ##############
-                elif text == "主選單2":
-                    payload["messages"] = [
-                            {
-                                "type": "template",
-                                "altText": "This is a confirm template",
-                                "template": {
-                                  "type": "confirm",
-                                  "text": "Are you sure??????",
-                                  "actions": [
-                                    #   {
-                                    #     "type": "message",
-                                    #     "label": "我的名字",
-                                    #     "text": "我的名字"
-                                    #   },
-                                      {
-                                        "type": "message",
-                                        "label": "yes",
-                                        "text": "yes"
-                                      },
-                                      {
-                                        "type": "message",
-                                        "label": "no",
-                                        "text": "no"
-                                      }
-                                  ]
-                              }
-                            }
-                        ]
                 else:
                     payload["messages"] = [
                             {
@@ -159,11 +129,13 @@ def index():
                     data["action"] = "get_detail"
                     payload["messages"] = [getCarouselMessage(data)]
                 elif action == "get_detail":
+                    spot = data['spot']
                     del data["action"]
-                    payload["messages"] = [getTaipei101ImageMessage(),
-                                           getTaipei101LocationMessage(),
-                                           getMRTVideoMessage(),
-                                           getCallCarMessage(data)]
+                    if spot == "taipei_101":
+                        payload["messages"] = [getTaipei101ImageMessage(),
+                                               getTaipei101LocationMessage(),
+                                               getMRTVideoMessage(),
+                                               getCallCarMessage(data)]
                 replyMessage(payload)
 
     return 'OK'
@@ -229,10 +201,38 @@ def getCarouselMessage(data):
     message["template"] = {
           "type": "image_carousel",
           "columns": [
-
-          ]
+                {
+                    "imageUrl": F"{end_point}/static/taipei_101.jpeg",
+                    "action": {
+                        "type": "postback",
+                        "label": "taipei_101",
+                        "data": F"action={data['action']}&spot=taipei_101"
+                    }
+                },{
+                    "imageUrl": F"{end_point}/static/teacher_con.jpeg",
+                    "action": {
+                        "type": "postback",
+                        "label": "teacher_con",
+                        "data": F"action={data['action']}&spot=teacher_con"
+                    }
+                },{
+                    "imageUrl": F"{end_point}/static/shilin.jpeg",
+                    "action": {
+                        "type": "postback",
+                        "label": "shilin",
+                        "data": F"action={data['action']}&spot=shilin"
+                    }
+                }
+            ]
     }
+############
+ 
+
+
+
     return message
+
+##############
 
 
 def getLocationConfirmMessage(title, latitude, longitude):
@@ -241,7 +241,21 @@ def getLocationConfirmMessage(title, latitude, longitude):
     message["altText"] = "this is a confirm template"
     data = {"title": title, "latitude": latitude, "longitude": longitude, "action": "get_near"}
     message["template"] = {
-
+            "type": "confirm",
+            "text": "Are you sure??????",
+            "actions": [
+                {
+                    "type" : "postback",
+                    "label" : "是的 規劃",
+                    "data" : "action=get_near&itemid=111",
+                    "text" : "是的 規劃"
+                },
+                {
+                    "type": "message",
+                    "label": "否",
+                    "text": "否"
+                }
+            ]
     }
     return message
 
@@ -251,8 +265,24 @@ def getCallCarMessage(data):
     message["type"] = "template"
     message["altText"] = "this is a confirm template"
     message["template"] = {
+            "type": "confirm",
+            "text": "Call car??????",
+            "actions": [
+                {
+                    "type" : "message",
+                    "label" : "是",
+                    #"data" : "action=get_near&itemid=111",
+                    "text" : "是"
+                },
+                {
+                    "type": "message",
+                    "label": "否",
+                    "text": "否"
+                }
+            ]
+    }
 
-                      }
+                      
     return message
 
 
